@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kompiuteriuRinkykla.Models;
 
 namespace kompiuteriuRinkykla.Migrations
 {
     [DbContext(typeof(computerAssemblyContext))]
-    partial class computerAssemblyContextModelSnapshot : ModelSnapshot
+    [Migration("20190521213047_PartType")]
+    partial class PartType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

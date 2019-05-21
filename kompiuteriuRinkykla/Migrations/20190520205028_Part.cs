@@ -12,9 +12,9 @@ namespace kompiuteriuRinkykla.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    Manufacturer = table.Column<string>(maxLength: 10, nullable: false),
-                    Model = table.Column<string>(maxLength: 10, nullable: false),
-                    Code = table.Column<string>(maxLength: 10, nullable: false),
+                    Manufacturer = table.Column<string>(maxLength: 255, nullable: false),
+                    Model = table.Column<string>(maxLength: 255, nullable: false),
+                    Code = table.Column<string>(maxLength: 255, nullable: false),
                     Price = table.Column<double>(nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime", nullable: false),
                     DateModified = table.Column<DateTime>(type: "datetime", nullable: false),

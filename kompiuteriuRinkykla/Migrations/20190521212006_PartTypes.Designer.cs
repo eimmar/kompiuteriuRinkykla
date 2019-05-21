@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kompiuteriuRinkykla.Models;
 
 namespace kompiuteriuRinkykla.Migrations
 {
     [DbContext(typeof(computerAssemblyContext))]
-    partial class computerAssemblyContextModelSnapshot : ModelSnapshot
+    [Migration("20190521212006_PartTypes")]
+    partial class PartTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,8 +73,6 @@ namespace kompiuteriuRinkykla.Migrations
 
                     b.Property<int>("MonitorSocketCount");
 
-                    b.Property<int?>("PartTypeId");
-
                     b.Property<int>("PciSocketCount");
 
                     b.Property<int>("Power");
@@ -95,33 +95,7 @@ namespace kompiuteriuRinkykla.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PartTypeId");
-
                     b.ToTable("Part");
-                });
-
-            modelBuilder.Entity("kompiuteriuRinkykla.Models.PartType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime>("DateModified");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PartType");
-                });
-
-            modelBuilder.Entity("kompiuteriuRinkykla.Models.Part", b =>
-                {
-                    b.HasOne("kompiuteriuRinkykla.Models.PartType", "PartType")
-                        .WithMany()
-                        .HasForeignKey("PartTypeId");
                 });
 #pragma warning restore 612, 618
         }
