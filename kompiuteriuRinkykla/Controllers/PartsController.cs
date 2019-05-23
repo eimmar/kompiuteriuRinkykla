@@ -42,9 +42,22 @@ namespace kompiuteriuRinkykla.Controllers
             return View(part);
         }
 
-        // GET: Parts/Create
-        public IActionResult Create()
+        // GET: Parts/AddPart
+        public IActionResult AddPart()
         {
+            return View(); 
+        }
+
+        // GET: Parts/Create
+        public IActionResult Create(string partType)
+        {      
+            var partTypeObj = _context.PartType.FirstOrDefault(m => m.Name.Equals(partType));
+            if (partTypeObj == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["PartType"] = partTypeObj;
             return View();
         }
 
@@ -53,7 +66,7 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Manufacturer,Model,Code,Price,DateCreated,DateModified,Qty")] Part part)
+        public async Task<IActionResult> Create([Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,Id,DateCreated,DateModified")] Part part)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +98,7 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Manufacturer,Model,Code,Price,DateCreated,DateModified,Qty")] Part part)
+        public async Task<IActionResult> Edit(int id, [Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,Id,DateCreated,DateModified")] Part part)
         {
             if (id != part.Id)
             {

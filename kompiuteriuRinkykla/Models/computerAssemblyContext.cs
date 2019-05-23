@@ -16,6 +16,7 @@ namespace kompiuteriuRinkykla.Models
         }
 
         public virtual DbSet<Part> Part { get; set; }
+        public virtual DbSet<PartType> PartType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
