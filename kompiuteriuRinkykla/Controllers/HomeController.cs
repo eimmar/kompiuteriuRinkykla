@@ -15,21 +15,26 @@ namespace kompiuteriuRinkykla.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult AssembleComputer()
         {
-            ViewData["Message"] = "Your application description page.";
+            //ViewData["Message"] = "";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult ChooseComputerByPurpose()
         {
-            ViewData["Message"] = "Your contact page.";
+            //ViewData["Message"] = "";
 
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult ViewAssembledComputers()
+        {
+            return View();
+        }
+
+        public IActionResult ViewPartsList()
         {
             return View();
         }
