@@ -9,7 +9,7 @@ namespace kompiuteriuRinkykla.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "Type",
                 table: "Part",
-                nullable: false,
+                nullable: true,
                 maxLength: 255);
 
             migrationBuilder.AddColumn<string>(

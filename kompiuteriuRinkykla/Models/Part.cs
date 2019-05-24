@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kompiuteriuRinkykla.Models
 {
@@ -10,12 +12,15 @@ namespace kompiuteriuRinkykla.Models
         public string Code { get; set; }
         public double Price { get; set; }
         public int Qty { get; set; }
+    
+        // Foreign key doesn't work for whatever reason.
+        public int PartTypeId { get; set; }
         public PartType PartType { get; set; }
 
         // PartType = data_storage
         public int MemoryGb { get; set; }
         public string Type { get; set; }
-        public int DataStorageInterface { get; set; }
+        public string DataStorageInterface { get; set; }
         public double Length { get; set; }
 
         // PartType = ram

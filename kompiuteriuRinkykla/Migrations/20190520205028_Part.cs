@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace kompiuteriuRinkykla.Migrations
@@ -11,7 +12,8 @@ namespace kompiuteriuRinkykla.Migrations
                 name: "Part",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                    .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Manufacturer = table.Column<string>(maxLength: 255, nullable: false),
                     Model = table.Column<string>(maxLength: 255, nullable: false),
                     Code = table.Column<string>(maxLength: 255, nullable: false),

@@ -31,8 +31,6 @@ namespace kompiuteriuRinkykla.Models
         {
             modelBuilder.Entity<Part>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Code)
                     .IsRequired()
                     .HasMaxLength(10);

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace kompiuteriuRinkykla.Models
 {
     public partial class PartType : BaseEntity
     {
         public string Name { get; set; }
+        public ICollection<Part> Parts { get; set; }
 
         public override string ToString()
         {

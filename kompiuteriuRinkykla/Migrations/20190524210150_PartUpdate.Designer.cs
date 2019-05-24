@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kompiuteriuRinkykla.Models;
 
 namespace kompiuteriuRinkykla.Migrations
 {
     [DbContext(typeof(computerAssemblyContext))]
-    partial class computerAssemblyContextModelSnapshot : ModelSnapshot
+    [Migration("20190524210150_PartUpdate")]
+    partial class PartUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,9 +23,7 @@ namespace kompiuteriuRinkykla.Migrations
 
             modelBuilder.Entity("kompiuteriuRinkykla.Models.Part", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("Id");
 
                     b.Property<string>("Code")
                         .IsRequired()
@@ -73,7 +73,7 @@ namespace kompiuteriuRinkykla.Migrations
 
                     b.Property<int>("MonitorSocketCount");
 
-                    b.Property<int>("PartTypeId");
+                    b.Property<int?>("PartTypeId");
 
                     b.Property<int>("PciSocketCount");
 
@@ -122,9 +122,8 @@ namespace kompiuteriuRinkykla.Migrations
             modelBuilder.Entity("kompiuteriuRinkykla.Models.Part", b =>
                 {
                     b.HasOne("kompiuteriuRinkykla.Models.PartType", "PartType")
-                        .WithMany("Parts")
-                        .HasForeignKey("PartTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("PartTypeId");
                 });
 #pragma warning restore 612, 618
         }

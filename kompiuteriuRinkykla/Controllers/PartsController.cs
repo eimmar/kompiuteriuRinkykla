@@ -66,11 +66,11 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,Id,DateCreated,DateModified")] Part part)
+        public async Task<IActionResult> Create([Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,DateCreated,DateModified,PartTypeId")] Part part)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(part);
+                _context.Part.Add(part);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -98,7 +98,7 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,Id,DateCreated,DateModified")] Part part)
+        public async Task<IActionResult> Edit(int id, [Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,DateCreated,DateModified,PartTypeId")] Part part)
         {
             if (id != part.Id)
             {
