@@ -55,13 +55,14 @@ namespace kompiuteriuRinkykla.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Purpose,Id,DateCreated,DateModified")] Computer computer)
         {
-            int DataStorage = int.Parse(Request.Form["data_storage"]);
-            int Ram = int.Parse(Request.Form["rams"]);
-            int Processor = int.Parse(Request.Form["processors"]);
-            int ComputerCase = int.Parse(Request.Form["computer_case"]);
-            int Motherboard = int.Parse(Request.Form["motherboards"]);
-            int Gpu = int.Parse(Request.Form["gpus"]);
-            int Psu = int.Parse(Request.Form["psus"]);
+            int.TryParse(Request.Form["data_storage"], out int DataStorage);
+            int.TryParse(Request.Form["rams"], out int Ram);
+            int.TryParse(Request.Form["processors"], out int Processor);
+            int.TryParse(Request.Form["computer_case"], out int ComputerCase);
+            int.TryParse(Request.Form["motherboards"], out int Motherboard);
+            int.TryParse(Request.Form["gpus"], out int Gpu);
+            int.TryParse(Request.Form["psus"], out int Psu);
+
             List<int> partIds = new List<int> {
                 DataStorage,
                 Ram,

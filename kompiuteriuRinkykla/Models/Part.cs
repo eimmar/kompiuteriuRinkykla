@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,7 @@ namespace kompiuteriuRinkykla.Models
         public int PartTypeId { get; set; }
         public PartType PartType { get; set; }
 
+        [JsonIgnore]
         public ICollection<ComputerPart> ComputerParts { get; set; }
 
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kompiuteriuRinkykla.Models;
+using kompiuteriuRinkykla.Helpers;
 
 namespace kompiuteriuRinkykla.Controllers
 {
@@ -155,6 +156,21 @@ namespace kompiuteriuRinkykla.Controllers
             _context.Part.Remove(part);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // POST: Parts/RelatedParts
+        [HttpPost]
+        [Produces("application/json")]
+        public async Task<ActionResult> RelatedParts()
+        {
+            var Parts = Request.Form["PIds[]"].ToArray().Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToArray();
+            if (Parts.Count() == 0)
+            {
+                return Json(new { });
+            }
+
+            PartSuggestor Ps = new PartSuggestor();
+            return Json(Ps.GetSuggestedParts(Parts));
         }
 
         private bool PartExists(int id)
