@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "AddPart";
+}
+
+<h2>Sukurti kompiuterio detalę</h2>
+
+<h4>Pasirinkite detalės tipą</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <a asp-action="Create" asp-route-partType="data_storage">Duomenų talpykla</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="ram">RAM</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="processor">Procesorius</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="computer_case">Kompiuterio korpusas</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="motherboard">Motininė plokštė</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="gpu">Vaizdo plokštė</a>
+        </p>
+        <p>
+            <a asp-action="Create" asp-route-partType="psu">Maitinimo blokas</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
