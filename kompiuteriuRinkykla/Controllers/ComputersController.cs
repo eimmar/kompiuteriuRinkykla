@@ -42,6 +42,23 @@ namespace kompiuteriuRinkykla.Controllers
             return View(computer);
         }
 
+        public async Task<ActionResult> DetailsByPurpose(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var computer = await _context.Computer
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (computer == null)
+            {
+                return NotFound();
+            }
+
+            return View(computer);
+        }
+
         // GET: Computers/Create
         public IActionResult Create()
         {
@@ -88,6 +105,14 @@ namespace kompiuteriuRinkykla.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(computer);
+        }
+
+        public IActionResult ChooseComputerByPurpose(string purpose)
+        {
+            var computers = from c in _context.Computer select c;
+            if (!String.IsNullOrEmpty(purpose))
+                computers = computers.Where(c => c.Purpose.Equals(purpose));
+            return View(computers.ToList());
         }
 
         // GET: Computers/Edit/5

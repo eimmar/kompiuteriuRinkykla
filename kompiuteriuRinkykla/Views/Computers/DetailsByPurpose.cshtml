@@ -1,0 +1,39 @@
+﻿@model kompiuteriuRinkykla.Models.Computer
+
+@{
+    ViewData["Title"] = "Detalesnė informacija";
+}
+
+<h2>Detalesnė informacija</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ChooseComputerByPurpose">Atgal</a>
+</div>
