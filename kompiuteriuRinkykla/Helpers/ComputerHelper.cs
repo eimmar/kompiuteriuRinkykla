@@ -19,6 +19,8 @@ namespace kompiuteriuRinkykla.Helpers
         public SelectList Gpus { get; set; }
         public SelectList Psus { get; set; }
 
+        public SelectList PcPurposes { get; set; }
+
 
         public ComputerHelper()
         {
@@ -26,40 +28,46 @@ namespace kompiuteriuRinkykla.Helpers
             computerAssemblyContext computerAssemblyContext = new computerAssemblyContext();
             DataStorage = new SelectList(computerAssemblyContext.Part
                 .Where(ds => ds.PartTypeId == 1)
-                .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem {Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type })
+                .ToList(), "Value", "Text");
 
             //Rams
             Rams = new SelectList(computerAssemblyContext.Part
                 .Where(ds => ds.PartTypeId == 2)
-                .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type })
+                .ToList(), "Value", "Text");
 
             //Processors
             Processors = new SelectList(computerAssemblyContext.Part
                .Where(ds => ds.PartTypeId == 3)
-               .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.ProcessorFrequency + "GHz " + p.CoreCount + " brand." })
+                .ToList(), "Value", "Text");
 
             //Computer cases
             ComputerCases = new SelectList(computerAssemblyContext.Part
                .Where(ds => ds.PartTypeId == 4)
-               .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.Color + " " + p.Length + "cm x " + p.Width + "cm x " + p.Height + "cm" })
+                .ToList(), "Value", "Text");
 
             //Motherboard
             Motherboards = new SelectList(computerAssemblyContext.Part
                .Where(ds => ds.PartTypeId == 5)
-               .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model})
+                .ToList(), "Value", "Text");
 
             //gpus
             Gpus = new SelectList(computerAssemblyContext.Part
                .Where(ds => ds.PartTypeId == 6)
-               .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type })
+                .ToList(), "Value", "Text");
 
             //psus
             Psus = new SelectList(computerAssemblyContext.Part
                .Where(ds => ds.PartTypeId == 7)
-               .ToList(), "Id", "Manufacturer");
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.Power + "W " + p.EfficiencyRating })
+                .ToList(), "Value", "Text");
+
+            PcPurposes = new SelectList(new List<string> { "Mokslams", "Darbui", "Žaidimams", "Video/grafiniam kūrimui" });
         }
-
-      
     }
-
 }

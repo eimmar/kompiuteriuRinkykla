@@ -55,13 +55,30 @@ namespace kompiuteriuRinkykla.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Purpose,Id,DateCreated,DateModified")] Computer computer)
         {
-            string DataStorage = Request.Form["data_storage"];
-            string Rams = Request.Form["rams"];
-            string Processors = Request.Form["processors"];
-            string ComputerCases = Request.Form["computer_case"];
-            string Motherboards = Request.Form["motherboards"];
-            string Gpus = Request.Form["gpus"];
-            string Psus = Request.Form["psus"];
+            int DataStorage = int.Parse(Request.Form["data_storage"]);
+            int Ram = int.Parse(Request.Form["rams"]);
+            int Processor = int.Parse(Request.Form["processors"]);
+            int ComputerCase = int.Parse(Request.Form["computer_case"]);
+            int Motherboard = int.Parse(Request.Form["motherboards"]);
+            int Gpu = int.Parse(Request.Form["gpus"]);
+            int Psu = int.Parse(Request.Form["psus"]);
+            List<int> partIds = new List<int> {
+                DataStorage,
+                Ram,
+                Processor,
+                ComputerCase,
+                Motherboard,
+                Gpu,
+                Psu
+            };
+            var parts = _context.Part.Where(p => partIds.Contains(p.Id));
+            List<ComputerPart> computerParts = new List<ComputerPart>();
+
+            foreach (Part p in parts)
+            {
+                ComputerPart cp = new ComputerPart { Part = p, Computer = computer };
+                _context.ComputerPart.Add(cp);
+            }
 
             if (ModelState.IsValid)
             {

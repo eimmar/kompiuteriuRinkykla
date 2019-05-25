@@ -18,8 +18,7 @@ namespace kompiuteriuRinkykla.Models
 
         public virtual DbSet<Part> Part { get; set; }
         public virtual DbSet<PartType> PartType { get; set; }
-        public virtual DbSet<Computer> Computers { get; set; }
-        public virtual DbSet<ComputerPart> ComputerParts { get; set; }
+        public virtual DbSet<ComputerPart> ComputerPart { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
