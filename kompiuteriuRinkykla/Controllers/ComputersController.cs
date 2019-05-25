@@ -98,7 +98,10 @@ namespace kompiuteriuRinkykla.Controllers
                 return NotFound();
             }
 
-            var computer = await _context.Computer.FindAsync(id);
+            var computer = await _context.Computer
+                .Include(c => c.ComputerParts)
+                .ThenInclude(Cp => Cp.Part)
+                .SingleOrDefaultAsync(i => i.Id == id);
             if (computer == null)
             {
                 return NotFound();

@@ -27,7 +27,7 @@
             <div class="pc-parts">
                 <div class="form-group">
                     <label class="control-label">Duomenų talpykla</label>
-                    <select name="data_storage" asp-items="computerHelper.DataStorage" class="form-control">
+                    <select name="data_storage" asp-items="computerHelper.DataStorage" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span asp-validation-for="Purpose" class="text-danger"></span>
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label class="control-label">RAM</label>
-                    <select name="rams" asp-items="computerHelper.Rams" class="form-control">
+                    <select name="rams" asp-items="computerHelper.Rams" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>
@@ -43,7 +43,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Procesorius</label>
-                    <select name="processors" asp-items="computerHelper.Processors" class="form-control">
+                    <select name="processors" asp-items="computerHelper.Processors" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>
@@ -51,7 +51,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Kompiuterio korpusas</label>
-                    <select name="computer_case" asp-items="computerHelper.ComputerCases" class="form-control">
+                    <select name="computer_case" asp-items="computerHelper.ComputerCases" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>
@@ -59,7 +59,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Motininė plokštė</label>
-                    <select name="motherboards" asp-items="computerHelper.Motherboards" class="form-control">
+                    <select name="motherboards" asp-items="computerHelper.Motherboards" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>
@@ -67,7 +67,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Vaizdo plokštė</label>
-                    <select name="gpus" asp-items="computerHelper.Gpus" class="form-control">
+                    <select name="gpus" asp-items="computerHelper.Gpus" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>
@@ -75,7 +75,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Maitinimo blokas</label>
-                    <select name="psus" asp-items="computerHelper.Psus" class="form-control">
+                    <select name="psus" asp-items="computerHelper.Psus" class="form-control" disabled="disabled">
                         <option value="">Pasirinkite</option>
                     </select>
                     <span class="text-danger"></span>

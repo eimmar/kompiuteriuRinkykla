@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using kompiuteriuRinkykla.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace kompiuteriuRinkykla.Helpers
 {
@@ -70,16 +71,48 @@ namespace kompiuteriuRinkykla.Helpers
             PcPurposes = new SelectList(new List<string> { "Mokslams", "Darbui", "Žaidimams", "Video/grafiniam kūrimui" });
 
             // Setting default selected values
-            try
+            for (int pTypeId = 1; pTypeId < 8; pTypeId++)
             {
-           //     Computer.ComputerParts.Where(cp => cp.Part.PartTypeId == 1).FirstOrDefault()
-            //    SetSelectedValue(DataStorage);
-            } catch (ArgumentNullException e) { }
+                try
+                {
+                    ComputerPart CPart = computerAssemblyContext.ComputerPart
+                        .Include(cp => cp.Part)
+                        .Where(cp => cp.ComputerId == Computer.Id && cp.Part.PartTypeId == pTypeId)
+                        .FirstOrDefault();
+
+                    switch (pTypeId)
+                    {
+                        case 1:
+                            SetSelectedValue(DataStorage, CPart);
+                            break;
+                        case 2:
+                            SetSelectedValue(Rams, CPart);
+                            break;
+                        case 3:
+                            SetSelectedValue(Processors, CPart);
+                            break;
+                        case 4:
+                            SetSelectedValue(ComputerCases, CPart);
+                            break;
+                        case 5:
+                            SetSelectedValue(Motherboards, CPart);
+                            break;
+                        case 6:
+                            SetSelectedValue(Gpus, CPart);
+                            break;
+                        case 7:
+                            SetSelectedValue(Psus, CPart);
+                            break;
+                    }
+                }
+                catch (ArgumentNullException e) { }
+                catch (NullReferenceException e) { }
+            }
         }
 
-        public void SetSelectedValue(SelectList Parts, ComputerPart Part)
+        public void SetSelectedValue(SelectList Parts, ComputerPart Cp)
         {
-            var selected = Parts.Where(x => x.Value.Equals(Part.Id.ToString())).FirstOrDefault();
+            var selected = Parts.Where(x => x.Value.Equals(Cp.Part.Id.ToString())).FirstOrDefault();
             if (selected != null)
             {
                 selected.Selected = true;
