@@ -13,9 +13,11 @@ namespace kompiuteriuRinkykla.Models
         public double Price { get; set; }
         public int Qty { get; set; }
     
-        // Foreign key doesn't work for whatever reason.
         public int PartTypeId { get; set; }
         public PartType PartType { get; set; }
+
+        public ICollection<ComputerPart> ComputerParts { get; set; }
+
 
         // PartType = data_storage
         public int MemoryGb { get; set; }

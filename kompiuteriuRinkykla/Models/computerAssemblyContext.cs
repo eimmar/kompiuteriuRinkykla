@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using kompiuteriuRinkykla.Models;
 
 namespace kompiuteriuRinkykla.Models
 {
@@ -17,6 +18,9 @@ namespace kompiuteriuRinkykla.Models
 
         public virtual DbSet<Part> Part { get; set; }
         public virtual DbSet<PartType> PartType { get; set; }
+        public virtual DbSet<Computer> Computers { get; set; }
+        public virtual DbSet<ComputerPart> ComputerParts { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,5 +54,7 @@ namespace kompiuteriuRinkykla.Models
                 entity.Property(e => e.Qty).HasDefaultValueSql("((1))");
             });
         }
+
+        public DbSet<kompiuteriuRinkykla.Models.Computer> Computer { get; set; }
     }
 }

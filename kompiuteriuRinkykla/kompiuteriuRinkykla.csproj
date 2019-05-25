@@ -5,6 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\AssembleComputer.cshtml" />
+    <None Include="Views\Home\ChooseComputerByPurpose.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\ViewAssembledComputers.cshtml" />
+    <None Include="Views\Home\ViewPartsList.cshtml" />
+    <None Include="Views\Parts\AddPart.cshtml" />
+    <None Include="Views\Parts\Create.cshtml" />
+    <None Include="Views\Parts\Delete.cshtml" />
+    <None Include="Views\Parts\Details.cshtml" />
+    <None Include="Views\Parts\Edit.cshtml" />
+    <None Include="Views\Parts\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
     <None Include="wwwroot\images\computer_case.jpg" />
     <None Include="wwwroot\images\data_storage.jpg" />
     <None Include="wwwroot\images\gpu.jpg" />
