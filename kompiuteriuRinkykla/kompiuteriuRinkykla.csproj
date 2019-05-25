@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <None Include="Views\Home\AssembleComputer.cshtml" />
-    <None Include="Views\Home\ChooseComputerByPurpose.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\ViewAssembledComputers.cshtml" />
     <None Include="Views\Home\ViewPartsList.cshtml" />

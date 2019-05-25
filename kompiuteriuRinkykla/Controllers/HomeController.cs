@@ -22,13 +22,6 @@ namespace kompiuteriuRinkykla.Controllers
             return View();
         }
 
-        public IActionResult ChooseComputerByPurpose()
-        {
-            //ViewData["Message"] = "";
-
-            return View();
-        }
-
         public IActionResult ViewAssembledComputers()
         {
             return View();

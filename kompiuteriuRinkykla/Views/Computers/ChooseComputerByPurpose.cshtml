@@ -1,0 +1,43 @@
+﻿@model IEnumerable<kompiuteriuRinkykla.Models.Computer>
+
+@{
+    ViewData["Title"] = "Pasirinkti kompiuterį pagal paskirtį";
+}
+
+<h2>Pasirinkti kompiuterį pagal paskirtį</h2>
+@using (Html.BeginForm("ChooseComputerByPurpose", "Computers", FormMethod.Get))
+{
+    <p>Nurodykite paskirtį:</p>
+    @Html.TextBox("purpose")
+    <input type="submit" value="ieškoti"/> 
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purpose)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purpose)
+                </td>
+                <td>
+                    <a asp-action="DetailsByPurpose" asp-route-id="@item.Id">Detalesnė informacija</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
