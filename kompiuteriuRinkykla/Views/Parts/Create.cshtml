@@ -16,22 +16,22 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
+                <label asp-for="Manufacturer" class="control-label">Gamintojas</label>
                 <input asp-for="Manufacturer" class="form-control" />
                 <span asp-validation-for="Manufacturer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
+                <label asp-for="Model" class="control-label">Modelis</label>
                 <input asp-for="Model" class="form-control" />
                 <span asp-validation-for="Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Code" class="control-label"></label>
+                <label asp-for="Code" class="control-label">Prekės kodas</label>
                 <input asp-for="Code" class="form-control" />
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+                <label asp-for="Price" class="control-label">Kaina, Eur</label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
@@ -40,22 +40,22 @@
             @if (partType.Name.Equals("data_storage"))
             {
                 <div class="form-group">
-                    <label asp-for="MemoryGb" class="control-label"></label>
+                    <label asp-for="MemoryGb" class="control-label">Atimintis, GB</label>
                     <input asp-for="MemoryGb" class="form-control" />
                     <span asp-validation-for="MemoryGb" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
+                    <label asp-for="Type" class="control-label">Tipas</label>
                     <select asp-for="Type" asp-items="formHelper.DataStorageTypes" class="form-control"></select>
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DataStorageInterface" class="control-label"></label>
+                    <label asp-for="DataStorageInterface" class="control-label">Jungties sąsaja</label>
                     <select asp-for="DataStorageInterface" asp-items="formHelper.DataStorageInterfaces" class="form-control"></select>
                     <span asp-validation-for="DataStorageInterface" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Length" class="control-label"></label>
+                    <label asp-for="Length" class="control-label">Ilgis, cm</label>
                     <input asp-for="Length" class="form-control" />
                     <span asp-validation-for="Length" class="text-danger"></span>
                 </div>
@@ -64,17 +64,17 @@
             @if (partType.Name.Equals("ram"))
             {
                 <div class="form-group">
-                    <label asp-for="MemoryGb" class="control-label"></label>
+                    <label asp-for="MemoryGb" class="control-label">Atmintis, GB</label>
                     <input asp-for="MemoryGb" class="form-control" />
                     <span asp-validation-for="MemoryGb" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ConnectionType" class="control-label"></label>
+                    <label asp-for="ConnectionType" class="control-label">Jungties tipas</label>
                     <select asp-for="ConnectionType" asp-items="formHelper.RamConnectionTypes" class="form-control"></select>
                     <span asp-validation-for="ConnectionType" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
+                    <label asp-for="Type" class="control-label">Ram tipas</label>
                     <select asp-for="Type" asp-items="formHelper.RamTypes" class="form-control"></select>
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
@@ -83,22 +83,22 @@
             @if (partType.Name.Equals("processor"))
             {
                 <div class="form-group">
-                    <label asp-for="ConnectionType" class="control-label"></label>
+                    <label asp-for="ConnectionType" class="control-label">Jungties tipas</label>
                     <select asp-for="ConnectionType" asp-items="formHelper.ProcessorConnectionTypes" class="form-control"></select>
                     <span asp-validation-for="ConnectionType" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ProcessorFrequency" class="control-label"></label>
+                    <label asp-for="ProcessorFrequency" class="control-label">Dažnis, Ghz</label>
                     <input asp-for="ProcessorFrequency" class="form-control" />
                     <span asp-validation-for="ProcessorFrequency" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CoreCount" class="control-label"></label>
+                    <label asp-for="CoreCount" class="control-label">Branduolių skaičius</label>
                     <input asp-for="CoreCount" class="form-control" />
                     <span asp-validation-for="CoreCount" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Power" class="control-label"></label>
+                    <label asp-for="Power" class="control-label">Galingumas, W</label>
                     <input asp-for="Power" class="form-control" />
                     <span asp-validation-for="Power" class="text-danger"></span>
                 </div>
@@ -107,42 +107,42 @@
             @if (partType.Name.Equals("computer_case"))
             {
                 <div class="form-group">
-                    <label asp-for="Length" class="control-label"></label>
+                    <label asp-for="Length" class="control-label">Ilgis, cm</label>
                     <input asp-for="Length" class="form-control" />
                     <span asp-validation-for="Length" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Color" class="control-label"></label>
+                    <label asp-for="Color" class="control-label">Spalva</label>
                     <input asp-for="Color" class="form-control" />
                     <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Width" class="control-label"></label>
+                    <label asp-for="Width" class="control-label">Plotis, cm</label>
                     <input asp-for="Width" class="form-control" />
                     <span asp-validation-for="Width" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Height" class="control-label"></label>
+                    <label asp-for="Height" class="control-label">Aukštis, cm</label>
                     <input asp-for="Height" class="form-control" />
                     <span asp-validation-for="Height" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MaxGpuLength" class="control-label"></label>
+                    <label asp-for="MaxGpuLength" class="control-label">Maksimalus GPU ilgis, cm</label>
                     <input asp-for="MaxGpuLength" class="form-control" />
                     <span asp-validation-for="MaxGpuLength" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MaxDataStorageLength" class="control-label"></label>
+                    <label asp-for="MaxDataStorageLength" class="control-label">Maksimalus duomenų talpyklos ilgis, cm</label>
                     <input asp-for="MaxDataStorageLength" class="form-control" />
                     <span asp-validation-for="MaxDataStorageLength" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MaxPsuLength" class="control-label"></label>
+                    <label asp-for="MaxPsuLength" class="control-label">Maksimalus maitinimo bloko ilgis, cm</label>
                     <input asp-for="MaxPsuLength" class="form-control" />
                     <span asp-validation-for="MaxPsuLength" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MaxMotherboardLength" class="control-label"></label>
+                    <label asp-for="MaxMotherboardLength" class="control-label">Maksimalus motininės plokštės ilgis, cm</label>
                     <input asp-for="MaxMotherboardLength" class="form-control" />
                     <span asp-validation-for="MaxMotherboardLength" class="text-danger"></span>
                 </div>
@@ -151,27 +151,27 @@
             @if (partType.Name.Equals("motherboard"))
             {
                 <div class="form-group">
-                    <label asp-for="RamConnType" class="control-label"></label>
+                    <label asp-for="RamConnType" class="control-label">RAM jungties tipas</label>
                     <select asp-for="RamConnType" asp-items="formHelper.RamConnectionTypes" class="form-control"></select>
                     <span asp-validation-for="RamConnType" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="RamSocketCount" class="control-label"></label>
+                    <label asp-for="RamSocketCount" class="control-label">Ram jungčių skaičius</label>
                     <input asp-for="RamSocketCount" class="form-control" />
                     <span asp-validation-for="RamSocketCount" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MaxRam" class="control-label"></label>
+                    <label asp-for="MaxRam" class="control-label">Maksimalus palaikomas RAM kiekis, GB</label>
                     <input asp-for="MaxRam" class="form-control" />
                     <span asp-validation-for="MaxRam" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CpuConnType" class="control-label"></label>
+                    <label asp-for="CpuConnType" class="control-label">CPU jungties tipas</label>
                     <select asp-for="CpuConnType" asp-items="formHelper.ProcessorConnectionTypes" class="form-control"></select>
                     <span asp-validation-for="CpuConnType" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Length" class="control-label"></label>
+                    <label asp-for="Length" class="control-label">Ilgis, cm</label>
                     <input asp-for="Length" class="form-control" />
                     <span asp-validation-for="Length" class="text-danger"></span>
                 </div>
@@ -180,27 +180,27 @@
             @if (partType.Name.Equals("gpu"))
             {
                 <div class="form-group">
-                    <label asp-for="MemoryGb" class="control-label"></label>
+                    <label asp-for="MemoryGb" class="control-label">Atmintis, GB</label>
                     <input asp-for="MemoryGb" class="form-control" />
                     <span asp-validation-for="MemoryGb" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
+                    <label asp-for="Type" class="control-label">Tipas</label>
                     <select asp-for="Type" asp-items="formHelper.GpuTypes" class="form-control"></select>
                     <span asp-validation-for="Type" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Power" class="control-label"></label>
+                    <label asp-for="Power" class="control-label">Galingumas, W</label>
                     <input asp-for="Power" class="form-control" />
                     <span asp-validation-for="Power" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Length" class="control-label"></label>
+                    <label asp-for="Length" class="control-label">Ilgis, cm</label>
                     <input asp-for="Length" class="form-control" />
                     <span asp-validation-for="Length" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="MonitorSocketCount" class="control-label"></label>
+                    <label asp-for="MonitorSocketCount" class="control-label">Monitoriaus jungčių skaičius</label>
                     <input asp-for="MonitorSocketCount" class="form-control" />
                     <span asp-validation-for="MonitorSocketCount" class="text-danger"></span>
                 </div>
@@ -209,29 +209,29 @@
             @if (partType.Name.Equals("psu"))
             {
                 <div class="form-group">
-                    <label asp-for="Power" class="control-label"></label>
+                    <label asp-for="Power" class="control-label">Galingumas, W</label>
                     <input asp-for="Power" class="form-control" />
                     <span asp-validation-for="Power" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="EfficiencyRating" class="control-label"></label>
+                    <label asp-for="EfficiencyRating" class="control-label">Efektyvumo vertinimas</label>
                     <select asp-for="EfficiencyRating" asp-items="formHelper.PsuEfficiencyRatings" class="form-control"></select>
                     <span asp-validation-for="EfficiencyRating" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PciSocketCount" class="control-label"></label>
+                    <label asp-for="PciSocketCount" class="control-label">PCI jungčių kiekis</label>
                     <input asp-for="PciSocketCount" class="form-control" />
                     <span asp-validation-for="PciSocketCount" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Length" class="control-label"></label>
+                    <label asp-for="Length" class="control-label">Ilgis, cm</label>
                     <input asp-for="Length" class="form-control" />
                     <span asp-validation-for="Length" class="text-danger"></span>
                 </div>
             }
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Sukurti" class="btn btn-default" />
             </div>
         </form>
     </div>

@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\computer_case.jpg" />
+    <None Include="wwwroot\images\data_storage.jpg" />
+    <None Include="wwwroot\images\gpu.jpg" />
+    <None Include="wwwroot\images\motherboard.jpg" />
+    <None Include="wwwroot\images\outas.jpg" />
+    <None Include="wwwroot\images\processor.jpg" />
+    <None Include="wwwroot\images\psu.jpg" />
+    <None Include="wwwroot\images\ram.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />

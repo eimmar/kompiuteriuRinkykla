@@ -21,7 +21,7 @@ namespace kompiuteriuRinkykla.Controllers
         // GET: Parts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Part.ToListAsync());
+            return View(await _context.Part.Include(p => p.PartType).ToListAsync());
         }
 
         // GET: Parts/Details/5
