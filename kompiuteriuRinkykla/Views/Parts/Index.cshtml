@@ -32,96 +32,97 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <img height="100" width="100" src="~/images/@(item.PartType.Name).jpg"/>
-            </td>
-            <td>
-                @if (item.PartType.Name.Equals("data_storage"))
-                {
-                    <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
-                    <p>@Html.DisplayFor(modelItem => item.Type)</p>
-                    <p>@Html.DisplayFor(modelItem => item.DataStorageInterface)</p>
-                    <p>Ilgis @Html.DisplayFor(modelItem => item.Length)</p>
-                }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img height="100" width="100" src="~/images/@(item.PartType.Name).jpg" />
+                </td>
+                <td>
+                    @if (item.PartType.Name.Equals("data_storage"))
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
+                        <p>@Html.DisplayFor(modelItem => item.Type)</p>
+                        <p>@Html.DisplayFor(modelItem => item.DataStorageInterface)</p>
+                        <p>Ilgis @Html.DisplayFor(modelItem => item.Length)</p>
+                    }
 
-                @if (item.PartType.Name.Equals("ram"))
-                {
-                    <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
-                    <p>@Html.DisplayFor(modelItem => item.ConnectionType)</p>
-                    <p>@Html.DisplayFor(modelItem => item.Type)</p>
-                }
+                    @if (item.PartType.Name.Equals("ram"))
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
+                        <p>@Html.DisplayFor(modelItem => item.ConnectionType)</p>
+                        <p>@Html.DisplayFor(modelItem => item.Type)</p>
+                    }
 
-                @if (item.PartType.Name.Equals("processor"))
-                {
-                    <p>@Html.DisplayFor(modelItem => item.ConnectionType)</p>
-                    <p>@Html.DisplayFor(modelItem => item.ProcessorFrequency) GHz</p>
-                    <p>@Html.DisplayFor(modelItem => item.CoreCount) branduoliai</p>
-                    <p>@Html.DisplayFor(modelItem => item.Power) W</p>
-                }
+                    @if (item.PartType.Name.Equals("processor"))
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.ConnectionType)</p>
+                        <p>@Html.DisplayFor(modelItem => item.ProcessorFrequency) GHz</p>
+                        <p>@Html.DisplayFor(modelItem => item.CoreCount) branduoliai</p>
+                        <p>@Html.DisplayFor(modelItem => item.Power) W</p>
+                    }
 
-                @if (item.PartType.Name.Equals("computer_case"))
-                {
-                    <p>
-                        @Html.DisplayFor(modelItem => item.Width) x
-                        @Html.DisplayFor(modelItem => item.Length) x
-                        @Html.DisplayFor(modelItem => item.Height)
-                    </p>
-                    <p>@Html.DisplayFor(modelItem => item.Color)</p>
-                    <p>@Html.DisplayFor(modelItem => item.MaxGpuLength)</p>
-                    <p>@Html.DisplayFor(modelItem => item.MaxDataStorageLength)</p>
-                    <p>@Html.DisplayFor(modelItem => item.MaxPsuLength)</p>
-                    <p>@Html.DisplayFor(modelItem => item.MaxMotherboardLength)</p>
-                }
+                    @if (item.PartType.Name.Equals("computer_case"))
+                    {
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Width) x
+                            @Html.DisplayFor(modelItem => item.Length) x
+                            @Html.DisplayFor(modelItem => item.Height)
+                        </p>
+                        <p>@Html.DisplayFor(modelItem => item.Color)</p>
+                        <p>@Html.DisplayFor(modelItem => item.MaxGpuLength)</p>
+                        <p>@Html.DisplayFor(modelItem => item.MaxDataStorageLength)</p>
+                        <p>@Html.DisplayFor(modelItem => item.MaxPsuLength)</p>
+                        <p>@Html.DisplayFor(modelItem => item.MaxMotherboardLength)</p>
+                    }
 
-                @if (item.PartType.Name.Equals("motherboard"))
-                {
-                    <p>Ram jungtis: @Html.DisplayFor(modelItem => item.RamConnType)</p>
-                    <p>Ram jungt. sk: @Html.DisplayFor(modelItem => item.RamSocketCount)</p>
-                    <p>Ram palaikymas: @Html.DisplayFor(modelItem => item.MaxRam) GB</p>
-                    <p>CPU jungtis: @Html.DisplayFor(modelItem => item.CpuConnType)</p>
-                    <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
-                }
+                    @if (item.PartType.Name.Equals("motherboard"))
+                    {
+                        <p>Ram jungtis: @Html.DisplayFor(modelItem => item.RamConnType)</p>
+                        <p>Ram jungt. sk: @Html.DisplayFor(modelItem => item.RamSocketCount)</p>
+                        <p>Ram palaikymas: @Html.DisplayFor(modelItem => item.MaxRam) GB</p>
+                        <p>CPU jungtis: @Html.DisplayFor(modelItem => item.CpuConnType)</p>
+                        <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
+                    }
 
-                @if (item.PartType.Name.Equals("gpu"))
-                {
-                    <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
-                    <p>@Html.DisplayFor(modelItem => item.Type)</p>
-                    <p>@Html.DisplayFor(modelItem => item.Power) W</p>
-                    <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
-                    <p>Palaiko @Html.DisplayFor(modelItem => item.MonitorSocketCount) ekr.</p>
-                }
+                    @if (item.PartType.Name.Equals("gpu"))
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.MemoryGb) GB</p>
+                        <p>@Html.DisplayFor(modelItem => item.Type)</p>
+                        <p>@Html.DisplayFor(modelItem => item.Power) W</p>
+                        <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
+                        <p>Palaiko @Html.DisplayFor(modelItem => item.MonitorSocketCount) ekr.</p>
+                    }
 
-                @if (item.PartType.Name.Equals("psu"))
-                {
-                    <p>@Html.DisplayFor(modelItem => item.Power) W</p>
-                    <p>@Html.DisplayFor(modelItem => item.EfficiencyRating)</p>
-                    <p>Jungt. skaičius: @Html.DisplayFor(modelItem => item.PciSocketCount)</p>
-                    <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) Eur
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Qty)
-            </td>    
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Pakeisti kiekį</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Peržiūrėti</a> |
-         @*       <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-            </td>
-        </tr>
-}
+                    @if (item.PartType.Name.Equals("psu"))
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.Power) W</p>
+                        <p>@Html.DisplayFor(modelItem => item.EfficiencyRating)</p>
+                        <p>Jungt. skaičius: @Html.DisplayFor(modelItem => item.PciSocketCount)</p>
+                        <p>Ilgis: @Html.DisplayFor(modelItem => item.Length) cm</p>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) Eur
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Pakeisti kiekį</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Peržiūrėti</a> |
+                    @*       <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

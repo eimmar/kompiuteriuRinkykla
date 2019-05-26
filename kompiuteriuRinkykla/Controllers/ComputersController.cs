@@ -105,6 +105,7 @@ namespace kompiuteriuRinkykla.Controllers
             {
                 _context.Add(computer);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Kompiuterio surinkimas sukurtas.";
                 return RedirectToAction(nameof(Index));
             }
             return View(computer);
@@ -156,6 +157,7 @@ namespace kompiuteriuRinkykla.Controllers
                 {
                     _context.Update(computer);
                     await _context.SaveChangesAsync();
+                    TempData["success"] = "Kompiuterio surinkimas atnaujintas.";
                 }
                 catch (DbUpdateConcurrencyException)
                 {

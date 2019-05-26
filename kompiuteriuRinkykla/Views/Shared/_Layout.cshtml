@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Computers Assembly</title>
+    <title>@ViewData["Title"] - Kompiuterių rinkykla</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -31,7 +31,7 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Pagrindinis</a></li>
                     <li><a asp-area="" asp-controller="Parts" asp-action="Index">Peržiurėti detalių sąrašą</a></li>
-                    <li><a asp-area="" asp-controller="Parts" asp-action="AddPart">Sukurti naują detalę</a></li>
+                    <li><a asp-area="" asp-controller="Parts" asp-action="AddPart">Pridėti detalę</a></li>
                     <li><a asp-area="" asp-controller="Computers" asp-action="ChooseComputerByPurpose">Pasirinkti kompiuterį pagal paskirtį</a></li>
                     <li><a asp-area="" asp-controller="Computers" asp-action="Index">Peržiūrėti kompiuterių sąrašą</a></li>
                 </ul>
@@ -42,6 +42,10 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success">@TempData["success"]</div>
+        }
         @RenderBody()
         <hr />
         <footer>

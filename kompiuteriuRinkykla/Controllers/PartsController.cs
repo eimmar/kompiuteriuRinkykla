@@ -73,6 +73,7 @@ namespace kompiuteriuRinkykla.Controllers
             {
                 _context.Part.Add(part);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Detalė sukurta.";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -120,6 +121,7 @@ namespace kompiuteriuRinkykla.Controllers
                 {
                     _context.Update(OldPart);
                     await _context.SaveChangesAsync();
+                    TempData["success"] = "Likutis atnaujintas.";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
