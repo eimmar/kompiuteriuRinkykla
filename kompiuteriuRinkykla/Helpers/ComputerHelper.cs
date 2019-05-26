@@ -22,52 +22,20 @@ namespace kompiuteriuRinkykla.Helpers
 
         public SelectList PcPurposes { get; set; }
 
+        computerAssemblyContext DBContext;
 
         public ComputerHelper(Computer Computer)
         {
-            //Data Storage
-            computerAssemblyContext computerAssemblyContext = new computerAssemblyContext();
-            DataStorage = new SelectList(computerAssemblyContext.Part
-                .Where(ds => ds.PartTypeId == 1)
-                .Select(p => new SelectListItem {Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
+            DBContext = new computerAssemblyContext();
 
-            //Rams
-            Rams = new SelectList(computerAssemblyContext.Part
-                .Where(ds => ds.PartTypeId == 2)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
-            //Processors
-            Processors = new SelectList(computerAssemblyContext.Part
-               .Where(ds => ds.PartTypeId == 3)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.ProcessorFrequency + "GHz " + p.CoreCount + " brand." + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
-            //Computer cases
-            ComputerCases = new SelectList(computerAssemblyContext.Part
-               .Where(ds => ds.PartTypeId == 4)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.Color + " " + p.Length + "cm x " + p.Width + "cm x " + p.Height + "cm" + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
-            //Motherboard
-            Motherboards = new SelectList(computerAssemblyContext.Part
-               .Where(ds => ds.PartTypeId == 5)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
-            //gpus
-            Gpus = new SelectList(computerAssemblyContext.Part
-               .Where(ds => ds.PartTypeId == 6)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.MemoryGb + "GB " + p.Type + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
-            //psus
-            Psus = new SelectList(computerAssemblyContext.Part
-               .Where(ds => ds.PartTypeId == 7)
-                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Manufacturer + " " + p.Model + " " + p.Power + "W " + p.EfficiencyRating + ", " + p.Price + " Eur" })
-                .ToList(), "Value", "Text");
-
+            DataStorage = GetPartSelectList("data_storage");
+            Rams = GetPartSelectList("ram");
+            Processors = GetPartSelectList("processor");
+            ComputerCases = GetPartSelectList("computer_case");
+            Motherboards = GetPartSelectList("motherboard");
+            Gpus = GetPartSelectList("gpu");
+            Psus = GetPartSelectList("psu");
+ 
             PcPurposes = new SelectList(new List<string> { "Mokslams", "Darbui", "Žaidimams", "Video/grafiniam kūrimui" });
 
             // Setting default selected values
@@ -75,39 +43,48 @@ namespace kompiuteriuRinkykla.Helpers
             {
                 try
                 {
-                    ComputerPart CPart = computerAssemblyContext.ComputerPart
-                        .Include(cp => cp.Part)
-                        .Where(cp => cp.ComputerId == Computer.Id && cp.Part.PartTypeId == pTypeId)
-                        .FirstOrDefault();
+                    ComputerPart CPart = Computer.ComputerParts.Where(cp => cp.Part.PartTypeId == pTypeId).FirstOrDefault();
+                    SelectList Parts = new SelectList(new List<string>());
 
                     switch (pTypeId)
                     {
                         case 1:
-                            SetSelectedValue(DataStorage, CPart);
+                            Parts = DataStorage;
                             break;
                         case 2:
-                            SetSelectedValue(Rams, CPart);
+                            Parts = Rams;
                             break;
                         case 3:
-                            SetSelectedValue(Processors, CPart);
+                            Parts = Processors;
                             break;
                         case 4:
-                            SetSelectedValue(ComputerCases, CPart);
+                            Parts = ComputerCases;
                             break;
                         case 5:
-                            SetSelectedValue(Motherboards, CPart);
+                            Parts = Motherboards;
                             break;
                         case 6:
-                            SetSelectedValue(Gpus, CPart);
+                            Parts = Gpus;
                             break;
                         case 7:
-                            SetSelectedValue(Psus, CPart);
+                            Parts = Psus;
                             break;
                     }
+                    SetSelectedValue(Parts, CPart);
                 }
                 catch (ArgumentNullException e) { }
                 catch (NullReferenceException e) { }
+                catch (InvalidOperationException e) { }
             }
+        }
+
+        SelectList GetPartSelectList(string PartTypeName)
+        {
+            return new SelectList(DBContext.Part
+               .Where(ds => ds.PartType.Name == PartTypeName)
+               .Include(p => p.PartType)
+                .Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.ToString() })
+                .ToList(), "Value", "Text");
         }
 
         public void SetSelectedValue(SelectList Parts, ComputerPart Cp)

@@ -34,7 +34,9 @@ namespace kompiuteriuRinkykla.Controllers
 
             var computer = await _context.Computer
                 .Include(c => c.ComputerParts)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .ThenInclude(Cp => Cp.Part)
+                .ThenInclude(p => p.PartType)
+                .SingleOrDefaultAsync(i => i.Id == id);
             if (computer == null)
             {
                 return NotFound();
@@ -127,6 +129,7 @@ namespace kompiuteriuRinkykla.Controllers
             var computer = await _context.Computer
                 .Include(c => c.ComputerParts)
                 .ThenInclude(Cp => Cp.Part)
+                .ThenInclude(p => p.PartType)
                 .SingleOrDefaultAsync(i => i.Id == id);
             if (computer == null)
             {

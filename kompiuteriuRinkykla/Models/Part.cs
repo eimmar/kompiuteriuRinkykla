@@ -67,5 +67,40 @@ namespace kompiuteriuRinkykla.Models
         public string EfficiencyRating { get; set; }
         public int PciSocketCount { get; set; }
         //public double Length { get; set; }
+
+        public override string ToString()
+        {
+            string Title = base.ToString();
+
+            if (PartType != null && PartType.Name != null)
+            {
+                switch (PartType.Name)
+                {
+                    case "data_storage":
+                        Title = Manufacturer + " " + Model + " " + MemoryGb + "GB " + Type + ", " + Price + " Eur";
+                        break;
+                    case "ram":
+                        Title = Manufacturer + " " + Model + " " + MemoryGb + "GB " + Type + ", " + Price + " Eur";
+                        break;
+                    case "processor":
+                        Title = Manufacturer + " " + Model + " " + ProcessorFrequency + "GHz " + CoreCount + " brand." + ", " + Price + " Eur";
+                        break;
+                    case "computer_case":
+                        Title = Manufacturer + " " + Model + " " + Color + " " + Length + "cm x " + Width + "cm x " + Height + "cm" + ", " + Price + " Eur";
+                        break;
+                    case "motherboard":
+                        Title = Manufacturer + " " + Model + ", " + Price + " Eur";
+                        break;
+                    case "gpu":
+                        Title = Manufacturer + " " + Model + " " + MemoryGb + "GB " + Type + ", " + Price + " Eur";
+                        break;
+                    case "psu":
+                        Title = Manufacturer + " " + Model + " " + Power + "W " + EfficiencyRating + ", " + Price + " Eur";
+                        break;
+                }
+            }
+
+            return Title;
+        }
     }
 }
