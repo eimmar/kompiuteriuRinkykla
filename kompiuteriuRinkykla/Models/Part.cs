@@ -19,7 +19,6 @@ namespace kompiuteriuRinkykla.Models
 
         [Required(ErrorMessage = "Laukas yra privalomas.")]
         [Range(0, int.MaxValue, ErrorMessage = "Kaina negali būti neigiama.")]
-        [DataType(DataType.Currency)]
         public double Price { get; set; }
 
         [Required(ErrorMessage = "Laukas yra privalomas.")]

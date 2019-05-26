@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Localization;
 
 namespace kompiuteriuRinkykla
 {
@@ -32,11 +31,6 @@ namespace kompiuteriuRinkykla
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-            services.Configure<RequestLocalizationOptions>(options =>
-            {
-                options.DefaultRequestCulture = new RequestCulture("en-US");
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -64,8 +58,6 @@ namespace kompiuteriuRinkykla
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseRequestLocalization();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

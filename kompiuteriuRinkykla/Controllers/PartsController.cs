@@ -112,12 +112,12 @@ namespace kompiuteriuRinkykla.Controllers
                 return NotFound();
             }
             int.TryParse(Request.Form["qty"], out int Qty);
+            OldPart.Qty = Qty;
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    OldPart.Qty = Qty;
                     _context.Update(OldPart);
                     await _context.SaveChangesAsync();
                 }
@@ -134,10 +134,6 @@ namespace kompiuteriuRinkykla.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //else
-            //{
-            //    ModelState.AddModelError("Qty", "Likutis negali būti neigiamas!");
-            //}
 
             return View(OldPart);
         }
