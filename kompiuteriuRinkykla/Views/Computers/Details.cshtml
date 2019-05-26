@@ -1,13 +1,13 @@
 ﻿@model kompiuteriuRinkykla.Models.Computer
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Perziura";
 }
 
-<h2>Details</h2>
+<h2>Peržiūrėti kompiuterį</h2>
 
 <div>
-    <h4>Computer</h4>
+    <h4>Kompiuteris</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,9 +34,17 @@
         <dd>
             @Html.DisplayFor(model => model.DateModified)
         </dd>
+        <dt>
+            Detalių ID
+        </dt>
+        <dd>
+            @foreach(var p in Model.ComputerParts)
+            {
+                <pre>@p.PartId</pre>
+            }
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Atgal į sąrašą</a>
 </div>

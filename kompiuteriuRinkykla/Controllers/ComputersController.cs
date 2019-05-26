@@ -21,7 +21,7 @@ namespace kompiuteriuRinkykla.Controllers
         // GET: Computers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Computer.ToListAsync());
+            return View(await _context.Computer.Include(c => c.ComputerParts).ToListAsync());
         }
 
         // GET: Computers/Details/5
@@ -33,6 +33,7 @@ namespace kompiuteriuRinkykla.Controllers
             }
 
             var computer = await _context.Computer
+                .Include(c => c.ComputerParts)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (computer == null)
             {
