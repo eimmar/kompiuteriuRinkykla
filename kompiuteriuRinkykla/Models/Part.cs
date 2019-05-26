@@ -8,10 +8,22 @@ namespace kompiuteriuRinkykla.Models
 {
     public partial class Part : BaseEntity
     {
+        [Required(ErrorMessage = "Laukas yra privalomas.")]
         public string Manufacturer { get; set; }
+
+        [Required(ErrorMessage = "Laukas yra privalomas.")]
         public string Model { get; set; }
+
+        [Required(ErrorMessage = "Laukas yra privalomas.")]
         public string Code { get; set; }
+
+        [Required(ErrorMessage = "Laukas yra privalomas.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Kaina negali būti neigiama.")]
+        [DataType(DataType.Currency)]
         public double Price { get; set; }
+
+        [Required(ErrorMessage = "Laukas yra privalomas.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Likutis negali būti neigiamas.")]
         public int Qty { get; set; }
     
         public int PartTypeId { get; set; }

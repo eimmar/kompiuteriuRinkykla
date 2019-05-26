@@ -75,6 +75,11 @@ namespace kompiuteriuRinkykla.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                var partTypeObj = _context.PartType.FirstOrDefault(m => m.Id == part.PartTypeId);
+                ViewData["PartType"] = partTypeObj;
+            }
             return View(part);
         }
 
@@ -108,7 +113,7 @@ namespace kompiuteriuRinkykla.Controllers
             }
             int.TryParse(Request.Form["qty"], out int Qty);
 
-            if (Qty > -1)
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -129,10 +134,10 @@ namespace kompiuteriuRinkykla.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                ModelState.AddModelError("Qty", "Likutis negali būti neigiamas!");
-            }
+            //else
+            //{
+            //    ModelState.AddModelError("Qty", "Likutis negali būti neigiamas!");
+            //}
 
             return View(OldPart);
         }

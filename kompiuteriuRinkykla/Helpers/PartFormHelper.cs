@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using kompiuteriuRinkykla.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +74,11 @@ namespace kompiuteriuRinkykla.Helpers
                 "80+ Bronze",
                 "80+"
             });
+        }
+
+        public void ValidatePart(Part Part, ControllerBase ModelState)
+        {
+
         }
     }
 }
