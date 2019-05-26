@@ -99,23 +99,26 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Manufacturer,Model,Code,Price,Qty,MemoryGb,Type,DataStorageInterface,Length,ConnectionType,ProcessorFrequency,CoreCount,Power,Color,Width,Height,MaxGpuLength,MaxDataStorageLength,MaxPsuLength,MaxMotherboardLength,RamConnType,RamSocketCount,MaxRam,CpuConnType,MonitorSocketCount,EfficiencyRating,PciSocketCount,DateCreated,DateModified,PartTypeId")] Part part)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id != part.Id)
+            var OldPart = await _context.Part.FindAsync(id);
+            if (OldPart == null)
             {
                 return NotFound();
             }
+            int.TryParse(Request.Form["qty"], out int Qty);
 
-            if (ModelState.IsValid)
+            if (Qty > -1)
             {
                 try
                 {
-                    _context.Update(part);
+                    OldPart.Qty = Qty;
+                    _context.Update(OldPart);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PartExists(part.Id))
+                    if (!PartExists(OldPart.Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +129,12 @@ namespace kompiuteriuRinkykla.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(part);
+            else
+            {
+                ModelState.AddModelError("Qty", "Likutis negali būti neigiamas!");
+            }
+
+            return View(OldPart);
         }
 
         // GET: Parts/Delete/5

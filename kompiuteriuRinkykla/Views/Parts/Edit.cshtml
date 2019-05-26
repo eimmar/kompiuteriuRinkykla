@@ -1,172 +1,207 @@
 ﻿@model kompiuteriuRinkykla.Models.Part
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Pakeisti likutį";
 }
 
-<h2>Edit</h2>
+<h2>Pakeisti likutį</h2>
 
-<h4>Part</h4>
+<h4>Detalė</h4>
 <hr />
 <div class="row">
+
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Code" class="control-label"></label>
-                <input asp-for="Code" class="form-control" />
-                <span asp-validation-for="Code" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Qty" class="control-label"></label>
-                <input asp-for="Qty" class="form-control" />
-                <span asp-validation-for="Qty" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MemoryGb" class="control-label"></label>
-                <input asp-for="MemoryGb" class="form-control" />
-                <span asp-validation-for="MemoryGb" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataStorageInterface" class="control-label"></label>
-                <input asp-for="DataStorageInterface" class="form-control" />
-                <span asp-validation-for="DataStorageInterface" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Length" class="control-label"></label>
-                <input asp-for="Length" class="form-control" />
-                <span asp-validation-for="Length" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConnectionType" class="control-label"></label>
-                <input asp-for="ConnectionType" class="form-control" />
-                <span asp-validation-for="ConnectionType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProcessorFrequency" class="control-label"></label>
-                <input asp-for="ProcessorFrequency" class="form-control" />
-                <span asp-validation-for="ProcessorFrequency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CoreCount" class="control-label"></label>
-                <input asp-for="CoreCount" class="form-control" />
-                <span asp-validation-for="CoreCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Power" class="control-label"></label>
-                <input asp-for="Power" class="form-control" />
-                <span asp-validation-for="Power" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" class="form-control" />
-                <span asp-validation-for="Width" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Height" class="control-label"></label>
-                <input asp-for="Height" class="form-control" />
-                <span asp-validation-for="Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxGpuLength" class="control-label"></label>
-                <input asp-for="MaxGpuLength" class="form-control" />
-                <span asp-validation-for="MaxGpuLength" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxDataStorageLength" class="control-label"></label>
-                <input asp-for="MaxDataStorageLength" class="form-control" />
-                <span asp-validation-for="MaxDataStorageLength" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxPsuLength" class="control-label"></label>
-                <input asp-for="MaxPsuLength" class="form-control" />
-                <span asp-validation-for="MaxPsuLength" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxMotherboardLength" class="control-label"></label>
-                <input asp-for="MaxMotherboardLength" class="form-control" />
-                <span asp-validation-for="MaxMotherboardLength" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RamConnType" class="control-label"></label>
-                <input asp-for="RamConnType" class="form-control" />
-                <span asp-validation-for="RamConnType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RamSocketCount" class="control-label"></label>
-                <input asp-for="RamSocketCount" class="form-control" />
-                <span asp-validation-for="RamSocketCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxRam" class="control-label"></label>
-                <input asp-for="MaxRam" class="form-control" />
-                <span asp-validation-for="MaxRam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CpuConnType" class="control-label"></label>
-                <input asp-for="CpuConnType" class="form-control" />
-                <span asp-validation-for="CpuConnType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MonitorSocketCount" class="control-label"></label>
-                <input asp-for="MonitorSocketCount" class="form-control" />
-                <span asp-validation-for="MonitorSocketCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EfficiencyRating" class="control-label"></label>
-                <input asp-for="EfficiencyRating" class="form-control" />
-                <span asp-validation-for="EfficiencyRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PciSocketCount" class="control-label"></label>
-                <input asp-for="PciSocketCount" class="form-control" />
-                <span asp-validation-for="PciSocketCount" class="text-danger"></span>
-            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Manufacturer)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Manufacturer)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Model)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Model)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt>
+                    <label asp-for="Qty" class="control-label"></label>
+                </dt>
+                <dd>
+                    <div class="form-group">
+                        <input asp-for="Qty" class="form-control" />
+                        <span asp-validation-for="Qty" class="text-danger"></span>
+                    </div>
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MemoryGb)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MemoryGb)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Type)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Type)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataStorageInterface)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataStorageInterface)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Length)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Length)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ConnectionType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ConnectionType)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProcessorFrequency)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProcessorFrequency)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CoreCount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CoreCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Power)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Power)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Color)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Width)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Width)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Height)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Height)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaxGpuLength)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaxGpuLength)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaxDataStorageLength)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaxDataStorageLength)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaxPsuLength)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaxPsuLength)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaxMotherboardLength)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaxMotherboardLength)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RamConnType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RamConnType)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RamSocketCount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RamSocketCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaxRam)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MaxRam)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CpuConnType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CpuConnType)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MonitorSocketCount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MonitorSocketCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EfficiencyRating)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EfficiencyRating)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PciSocketCount)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PciSocketCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateCreated)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateCreated)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateModified)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateModified)
+                </dd>
+            </dl>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="DateCreated" class="control-label"></label>
-                <input asp-for="DateCreated" class="form-control" />
-                <span asp-validation-for="DateCreated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateModified" class="control-label"></label>
-                <input asp-for="DateModified" class="form-control" />
-                <span asp-validation-for="DateModified" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Atnaujinti" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Atgal į sąrašą</a>
 </div>
 
 @section Scripts {
