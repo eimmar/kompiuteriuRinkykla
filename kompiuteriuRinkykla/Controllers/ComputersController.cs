@@ -73,7 +73,7 @@ namespace kompiuteriuRinkykla.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Purpose,Id,DateCreated,DateModified")] Computer computer)
+        public async Task<IActionResult> Create([Bind("Name,Purpose,Id,Status")] Computer computer)
         {
             int.TryParse(Request.Form["data_storage"], out int DataStorage);
             int.TryParse(Request.Form["rams"], out int Ram);

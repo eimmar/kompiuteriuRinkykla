@@ -1,15 +1,27 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kompiuteriuRinkykla.Models
 {
-    public partial class PartType : BaseEntity
+    public partial class PartType
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
+
         public string Name { get; set; }
 
         [JsonIgnore]
         public ICollection<Part> Parts { get; set; }
+
+        public PartType()
+        {
+            DateCreated = DateTime.UtcNow;
+            DateModified = DateTime.UtcNow;
+        }
 
         public override string ToString()
         {

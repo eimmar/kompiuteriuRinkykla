@@ -6,8 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace kompiuteriuRinkykla.Models
 {
-    public partial class Part : BaseEntity
+    public partial class Part
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
+
         [Required(ErrorMessage = "Laukas yra privalomas.")]
         public string Manufacturer { get; set; }
 
@@ -79,6 +84,12 @@ namespace kompiuteriuRinkykla.Models
         public int PciSocketCount { get; set; }
         //public double Length { get; set; }
 
+        public Part()
+        {
+            DateCreated = DateTime.UtcNow;
+            DateModified = DateTime.UtcNow;
+        }
+    
         public override string ToString()
         {
             string Title = base.ToString();
