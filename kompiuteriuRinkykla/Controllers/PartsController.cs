@@ -125,6 +125,7 @@ namespace kompiuteriuRinkykla.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    TempData["error"] = "Klaida atnaujinant likutį.";
                     if (!PartExists(OldPart.Id))
                     {
                         return NotFound();
